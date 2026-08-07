@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07101f">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex,noarchive">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Revisão da ITO 30 | Consulta Técnica à Tropa</title>
+  <meta name="description" content="Consulta técnica à tropa para revisão da ITO 30 — Atendimento a Tentativas de Suicídio — CBMMG.">
+  <link rel="canonical" href="https://ricmurtapsicologia.github.io/revisaoIto30/">
+
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Revisão da ITO 30 | CBMMG">
+  <meta property="og:title" content="Revisão da ITO 30 | Consulta Técnica à Tropa">
+  <meta property="og:description" content="Acesse a minuta da nova ITO 30 e envie sua contribuição técnica à Comissão de Revisão.">
+  <meta property="og:url" content="https://ricmurtapsicologia.github.io/revisaoIto30/">
+  <meta property="og:image" content="https://i.pinimg.com/736x/29/42/2a/29422ad8bed8166ef119bcef4792218f.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Revisão da ITO 30 | Consulta Técnica à Tropa">
+  <meta name="twitter:description" content="Acesse a minuta da nova ITO 30 e envie sua contribuição técnica.">
+  <meta name="twitter:image" content="https://i.pinimg.com/736x/29/42/2a/29422ad8bed8166ef119bcef4792218f.jpg">
+
+  <style>
+    :root{
+      --navy:#07101f;
+      --blue:#003366;
+      --blue-2:#07569f;
+      --gold:#ffdd00;
+      --paper:#f4f1ea;
+      --paper-2:#faf8f3;
+      --ink:#18222c;
+      --muted:#66717c;
+      --line:#ddd7ca;
+      --white:#fff;
+      --shadow:0 22px 55px rgba(7,16,31,.12);
+      --radius:24px;
+      --hero:url("https://i.pinimg.com/736x/29/42/2a/29422ad8bed8166ef119bcef4792218f.jpg");
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    body{
+      margin:0;
+      min-height:100dvh;
+      overflow-x:hidden;
+      background:linear-gradient(180deg,#ece8df 0,#f7f5f0 440px,var(--paper) 100%);
+      color:var(--ink);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:inherit}
+    .shell{width:min(1120px,calc(100% - 32px));margin-inline:auto}
+
+    .hero{padding:22px 0 18px}
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      min-height:520px;
+      display:flex;
+      align-items:flex-end;
+      padding:clamp(24px,5vw,48px);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:30px;
+      background:
+        linear-gradient(108deg,rgba(0,0,0,.92),rgba(0,0,0,.62) 54%,rgba(0,0,0,.86)),
+        var(--hero) 64% center/cover no-repeat;
+      color:#fff;
+      box-shadow:0 28px 70px rgba(3,8,16,.28);
+    }
+
+    .brand{
+      position:absolute;
+      top:28px;
+      left:clamp(24px,5vw,48px);
+      right:clamp(24px,5vw,48px);
+      display:flex;
+      align-items:center;
+      gap:9px;
+      color:rgba(255,255,255,.94);
+      font-size:12px;
+      font-weight:850;
+      line-height:1.35;
+      letter-spacing:.075em;
+      text-transform:uppercase;
+    }
+
+    .brand-mark{color:var(--gold);font-size:16px;line-height:1}
+    .hero-copy{max-width:780px}
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin:0 0 14px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:900;
+      line-height:1.35;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+
+    .hero h1{
+      max-width:760px;
+      margin:0 0 14px;
+      color:#fff;
+      font-size:clamp(2rem,7vw,3.85rem);
+      line-height:1.03;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+      text-shadow:0 6px 24px rgba(0,0,0,.55);
+    }
+
+    .hero h1 span{color:var(--gold)}
+    .subtitle{
+      max-width:700px;
+      margin:0;
+      color:rgba(255,255,255,.95);
+      font-size:clamp(1rem,2.4vw,1.18rem);
+      font-weight:720;
+      line-height:1.48;
+      text-shadow:0 3px 14px rgba(0,0,0,.42);
+    }
+
+    .hero-text{
+      max-width:710px;
+      margin:18px 0 0;
+      color:rgba(255,255,255,.88);
+      font-size:15.5px;
+      line-height:1.68;
+      text-shadow:0 3px 12px rgba(0,0,0,.34);
+    }
+
+    .status{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      width:fit-content;
+      margin-top:18px;
+      padding:8px 11px;
+      border:1px solid rgba(255,221,0,.42);
+      border-radius:999px;
+      background:rgba(255,221,0,.11);
+      color:#fff;
+      font-size:12.5px;
+      font-weight:760;
+    }
+
+    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(255,221,0,.12)}
+
+    .signature{
+      display:grid;
+      gap:3px;
+      margin-top:24px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.78);
+      font-size:12.5px;
+      line-height:1.45;
+    }
+    .signature strong{color:#fff;font-size:13.5px;font-weight:850}
+
+    main{padding:18px 0 42px}
+    .intro-card{
+      display:grid;
+      gap:24px;
+      padding:clamp(22px,4vw,34px);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.78);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+
+    .section-label{
+      margin:0 0 8px;
+      color:var(--blue);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+
+    .intro-card h2{
+      margin:0;
+      color:#17212b;
+      font-size:clamp(1.45rem,4vw,2rem);
+      line-height:1.2;
+      letter-spacing:-.02em;
+      text-wrap:balance;
+    }
+
+    .intro-card p{
+      margin:10px 0 0;
+      color:#4e5a65;
+      font-size:15.5px;
+      line-height:1.7;
+    }
+
+    .actions{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .btn{
+      min-height:56px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:15px;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:830;
+      letter-spacing:.005em;
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+      touch-action:manipulation;
+    }
+
+    .btn-primary{
+      background:linear-gradient(180deg,var(--blue-2),var(--blue) 58%,#001f3f);
+      color:#fff;
+      box-shadow:0 12px 28px rgba(0,51,102,.22);
+    }
+
+    .btn-secondary{
+      border:1px solid #c7bfad;
+      background:#fff;
+      color:#24313e;
+      box-shadow:0 8px 22px rgba(22,33,44,.08);
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn:focus-visible{outline:3px solid rgba(7,86,159,.28);outline-offset:3px}
+    .arrow{font-size:18px;line-height:1}
+
+    .guide{
+      margin-top:18px;
+      padding:clamp(22px,4vw,32px);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--paper-2);
+    }
+
+    .guide-head{max-width:760px}
+    .guide h2{margin:0;font-size:clamp(1.35rem,3.5vw,1.8rem);line-height:1.22;letter-spacing:-.02em}
+    .guide .lead{margin:9px 0 0;color:var(--muted);font-size:15px;line-height:1.65}
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .step{
+      min-height:150px;
+      padding:18px;
+      border:1px solid #e1dbcf;
+      border-radius:17px;
+      background:#fff;
+    }
+    .step-num{
+      width:30px;height:30px;
+      display:grid;place-items:center;
+      margin-bottom:12px;
+      border-radius:10px;
+      background:#edf4fb;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:900;
+    }
+    .step strong{display:block;margin-bottom:6px;color:#26323d;font-size:14.5px}
+    .step p{margin:0;color:#68737d;font-size:13.5px;line-height:1.55}
+
+    .note{
+      margin-top:18px;
+      padding:14px 16px;
+      border-left:3px solid #c8a900;
+      border-radius:0 12px 12px 0;
+      background:#fffbea;
+      color:#5c5540;
+      font-size:13.5px;
+      line-height:1.58;
+    }
+
+    footer{padding:4px 0 max(30px,env(safe-area-inset-bottom))}
+    .footer-panel{
+      position:relative;
+      padding:22px 16px 0;
+      border-top:1px solid #d7d2c7;
+      text-align:center;
+      color:#66717c;
+    }
+    .footer-panel:before{
+      content:"";
+      position:absolute;
+      top:-1px;left:50%;
+      width:56px;height:2px;
+      transform:translateX(-50%);
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--blue),var(--gold));
+    }
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      margin-bottom:6px;
+      color:#2d3a46;
+      font-size:12px;
+      font-weight:850;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+    }
+    .footer-brand span:first-child{color:#c8a900;font-size:14px}
+    .footer-copy{margin:0;font-size:12px;line-height:1.58}
+    .footer-copy strong{color:#3b4752}
+
+    @media(max-width:760px){
+      .shell{width:min(calc(100% - 22px),1120px)}
+      .hero{padding:12px 0 14px}
+      .hero-card{
+        min-height:550px;
+        padding:22px;
+        border-radius:22px;
+        background-position:68% center;
+      }
+      .brand{top:22px;left:22px;right:22px;font-size:11px}
+      .hero h1{font-size:clamp(2rem,11vw,3rem)}
+      .subtitle{font-size:1rem}
+      .hero-text{font-size:14.5px;line-height:1.65}
+      .signature{font-size:12px}
+      .signature strong{font-size:12.8px}
+      main{padding-top:10px}
+      .actions,.steps{grid-template-columns:1fr}
+      .btn{min-height:54px}
+      .step{min-height:0}
+    }
+
+    @media(max-width:390px){
+      .hero-card{min-height:575px;padding:20px}
+      .brand{left:20px;right:20px}
+      .intro-card,.guide{padding:19px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" aria-labelledby="page-title">
+    <div class="shell">
+      <div class="hero-card">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">★</span><span>CBMMG • Comissão de Revisão da ITO 30</span></div>
+
+        <div class="hero-copy">
+          <div class="kicker">Consulta técnica à tropa • 2026</div>
+          <h1 id="page-title">Revisão da <span>ITO 30</span></h1>
+          <p class="subtitle">Atendimento a Tentativas de Suicídio — Sistema ATTS</p>
+          <p class="hero-text">A experiência de quem atua, instrui e gerencia ocorrências é parte importante desta revisão. Consulte a minuta e, ao identificar uma oportunidade de melhoria, registre sua contribuição de forma objetiva.</p>
+          <div class="status"><span class="status-dot" aria-hidden="true"></span><span>Minuta em consulta técnica</span></div>
+
+          <div class="signature">
+            <span>Cordialmente,</span>
+            <strong>Richelmy Murta Pinto</strong>
+            <span>Presidente da Comissão de Revisão da ITO 30</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="shell">
+      <section class="intro-card" aria-labelledby="participar-title">
+        <div>
+          <p class="section-label">Participação objetiva</p>
+          <h2 id="participar-title">Leia a minuta. Identifique o ponto. Registre sua proposta.</h2>
+          <p>A consulta foi organizada para ser simples. Se encontrar um trecho que possa ficar mais claro, seguro, atualizado ou adequado à realidade operacional, informe o fragmento, explique brevemente o motivo e apresente a redação que você sugere.</p>
+        </div>
+
+        <div class="actions" aria-label="Acessos principais">
+          <a class="btn btn-primary" href="https://docs.google.com/document/d/11RH0jaZOul9qNh7hrTRLXc-DClndHEFW/edit?usp=drive_link&ouid=108383429800204795084&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+            <span>Acessar a minuta</span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSehw1svEtR132gzqSuQM54D45IuOyeN2BZtaeDiRsRgVeEioQ/viewform" target="_blank" rel="noopener noreferrer">
+            <span>Enviar sugestão</span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="guide" aria-labelledby="guide-title">
+        <div class="guide-head">
+          <p class="section-label">Como contribuir</p>
+          <h2 id="guide-title">Uma sugestão por envio</h2>
+          <p class="lead">Isso facilita a leitura, a comparação entre propostas e a análise individual pela Comissão.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">1</div>
+            <strong>Localize o trecho</strong>
+            <p>Consulte a minuta e identifique o capítulo, item, página ou fragmento que deseja revisar.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">2</div>
+            <strong>Explique o motivo</strong>
+            <p>Indique, de forma breve, o ganho esperado: clareza, segurança, atualização técnica ou adequação operacional.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">3</div>
+            <strong>Proponha a redação</strong>
+            <p>Escreva como o trecho poderia ficar. Referências são bem-vindas, mas opcionais.</p>
+          </article>
+        </div>
+
+        <div class="note"><strong>Importante:</strong> não é necessário utilizar linguagem acadêmica. O objetivo é compreender com precisão onde está a sugestão, por que a alteração é pertinente e como você propõe que o texto fique.</div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="footer-panel">
+        <div class="footer-brand"><span aria-hidden="true">★</span><span>CBMMG • Revisão da ITO 30</span></div>
+        <p class="footer-copy"><strong>© 2026 Corpo de Bombeiros Militar de Minas Gerais.</strong><br>Comissão de Revisão da ITO 30 • Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

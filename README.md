@@ -2,58 +2,49 @@
 
 Página pública de apoio à consulta técnica da minuta da nova ITO 30 — Atendimento a Tentativas de Suicídio — Sistema ATTS.
 
-## Objetivo
+## Experiência do usuário
 
-Centralizar em uma única experiência:
+A página foi estruturada em arquitetura mobile-first e concentra toda a interação em um único endereço.
 
-- acesso à minuta em revisão;
-- preenchimento da contribuição técnica diretamente na própria página;
-- encaminhamento das respostas ao Google Forms apenas como backend de armazenamento.
+- **Visualizar minuta**: abre a minuta diretamente na própria página, em visualizador incorporado de grande área, sem exigir navegação para o Google Drive.
+- **Responder**: revela o formulário de contribuição somente quando solicitado.
+- O Google Forms permanece apenas como backend de armazenamento das respostas; o respondente não precisa abrir ou visualizar o Forms.
+- Após o envio, a página mostra confirmação e permite registrar nova contribuição ou voltar à leitura da minuta.
 
-O respondente não precisa abrir ou acessar visualmente o Google Forms.
-
-## Página
+## Endereço
 
 `https://ricmurtapsicologia.github.io/revisaoIto30/`
 
 ## Minuta
 
-`https://docs.google.com/document/d/11RH0jaZOul9qNh7hrTRLXc-DClndHEFW/edit?usp=drive_link&ouid=108383429800204795084&rtpof=true&sd=true`
+Documento incorporado por visualização do Google Docs:
 
-## Integração com Google Forms
+`https://docs.google.com/document/d/11RH0jaZOul9qNh7hrTRLXc-DClndHEFW/preview?embedded=true`
 
-O formulário HTML da página envia os dados diretamente ao endpoint `formResponse` do Google Forms. O Forms funciona somente como backend de coleta.
+## Google Forms — backend
 
-Mapeamento atual:
+As respostas são enviadas silenciosamente para:
 
-- Nome completo → `entry.2051715658`
-- Posto/Graduação → `entry.1776044509`
-- Melhor e-mail → `entry.2085063746`
-- Parte da ITO → `entry.1314340447`
-- Fragmento atual → `entry.435462653`
-- Justificativa → `entry.1714859578`
-- Nova proposta → `entry.1328219941`
-- Referência opcional → `entry.1240379903`
+`https://docs.google.com/forms/d/e/1FAIpQLSehw1svEtR132gzqSuQM54D45IuOyeN2BZtaeDiRsRgVeEioQ/formResponse`
 
-Se a estrutura das perguntas do Google Forms for alterada ou recriada, conferir os IDs `entry.*` antes de publicar nova versão da página.
+IDs integrados atualmente:
 
-## UX
+- Nome: `entry.2051715658`
+- Posto/Graduação: `entry.1776044509`
+- E-mail: `entry.2085063746`
+- Parte da ITO: `entry.1314340447`
+- Fragmento: `entry.435462653`
+- Justificativa: `entry.1714859578`
+- Nova proposta: `entry.1328219941`
+- Referência: `entry.1240379903`
 
-Fluxo principal:
+Se o formulário oficial for recriado ou suas perguntas forem substituídas, esses IDs deverão ser conferidos antes de publicar nova versão da página.
 
-1. acessar a minuta;
-2. preencher a contribuição diretamente na página;
-3. enviar;
-4. receber confirmação sem sair do site;
-5. optar por enviar outra sugestão, mantendo os dados de identificação já preenchidos.
+## Arquivos
 
-Cada envio corresponde preferencialmente a uma sugestão.
-
-## Estrutura
-
-- `index.html` — página completa, responsiva, formulário integrado e JavaScript de envio;
+- `index.html` — página completa, responsiva, visualizador da minuta e formulário integrado.
 - `.nojekyll` — impede processamento desnecessário pelo Jekyll.
 
 ## Identidade visual
 
-O hero segue a linguagem visual da página CATS Pouso Alegre, adaptada para a Comissão de Revisão da ITO 30, sem os dados do curso.
+O hero segue a linguagem visual da página CATS Pouso Alegre, adaptada à Comissão de Revisão da ITO 30 e sem informações específicas do curso.

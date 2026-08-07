@@ -14,13 +14,13 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Revisão da ITO 30 | CBMMG">
   <meta property="og:title" content="Revisão da ITO 30 | Consulta Técnica à Tropa">
-  <meta property="og:description" content="Consulte a minuta da nova ITO 30 e registre sua contribuição técnica diretamente na página.">
+  <meta property="og:description" content="Leia a minuta e registre sua contribuição técnica diretamente na página.">
   <meta property="og:url" content="https://ricmurtapsicologia.github.io/revisaoIto30/">
   <meta property="og:image" content="https://i.pinimg.com/736x/29/42/2a/29422ad8bed8166ef119bcef4792218f.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <style>
     :root{
-      --navy:#07101f;--blue:#003366;--blue2:#07569f;--gold:#ffdd00;--gold2:#e6bd00;
+      --navy:#07101f;--blue:#003366;--blue2:#07569f;--gold:#ffdd00;--gold2:#e5bd00;
       --paper:#f4f1ea;--paper2:#faf8f3;--ink:#18222c;--muted:#66717c;--line:#ddd7ca;
       --white:#fff;--danger:#9b2c2c;--success:#1f6b43;--radius:22px;
       --hero:url("https://i.pinimg.com/736x/29/42/2a/29422ad8bed8166ef119bcef4792218f.jpg");
@@ -29,6 +29,7 @@
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
     body{margin:0;min-height:100dvh;overflow-x:hidden;background:linear-gradient(180deg,#ece8df 0,#f7f5f0 430px,var(--paper) 100%);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
     button,input,select,textarea{font:inherit}
+    button{touch-action:manipulation}
     .shell{width:min(1120px,calc(100% - 24px));margin-inline:auto}
     .hero{padding:14px 0}
     .hero-card{position:relative;min-height:480px;display:flex;align-items:flex-end;overflow:hidden;padding:clamp(22px,5vw,46px);border-radius:28px;border:1px solid rgba(255,255,255,.13);background:linear-gradient(108deg,rgba(0,0,0,.92),rgba(0,0,0,.62) 55%,rgba(0,0,0,.86)),var(--hero) 64% center/cover no-repeat;color:#fff;box-shadow:0 24px 60px rgba(3,8,16,.25)}
@@ -42,213 +43,123 @@
     .hero-text{max-width:700px;margin:17px 0 0;color:rgba(255,255,255,.89);font-size:15px;line-height:1.66}
     .signature{display:grid;gap:3px;margin-top:22px;padding-top:15px;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.78);font-size:12.5px;line-height:1.45}
     .signature strong{color:#fff;font-size:13.5px;font-weight:850}
+
     main{padding:8px 0 40px}
-    .intro,.guide,.form-card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.84)}
+    .intro,.guide,.form-card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.86)}
     .intro{padding:clamp(20px,4vw,32px)}
     .eyebrow{margin:0 0 7px;color:var(--blue);font-size:11.5px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
     h2{margin:0;color:#17212b;font-size:clamp(1.4rem,4vw,1.95rem);line-height:1.2;letter-spacing:-.02em}
     .intro p,.guide p{color:#53606b;line-height:1.65}
     .actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-    .btn{min-height:56px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border:0;border-radius:15px;text-decoration:none;cursor:pointer;font-weight:850;transition:transform .16s ease,filter .16s ease,box-shadow .16s ease;touch-action:manipulation}
-    .btn:hover{transform:translateY(-1px)} .btn:active{transform:none}
-    .btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(7,86,159,.3);outline-offset:2px}
+    .btn{min-height:56px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border:0;border-radius:15px;text-decoration:none;cursor:pointer;font-weight:850;transition:transform .16s ease,filter .16s ease,box-shadow .16s ease}
+    .btn:hover{transform:translateY(-1px)}.btn:active{transform:none}.btn:disabled{cursor:wait;opacity:.68}
+    .btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.tool-btn:focus-visible{outline:3px solid rgba(7,86,159,.32);outline-offset:2px}
     .btn-primary{background:linear-gradient(180deg,var(--blue2),var(--blue) 60%,#001f3f);color:#fff;box-shadow:0 10px 24px rgba(0,51,102,.22)}
     .btn-answer{background:linear-gradient(180deg,#ffe763,var(--gold) 52%,var(--gold2));color:#17212b;box-shadow:0 10px 24px rgba(166,130,0,.22)}
     .btn-secondary{background:#e9eef3;color:#26323d;border:1px solid #cbd4dc}
-    .panel{margin-top:14px}
     .panel[hidden]{display:none!important}
-    .viewer{background:#101722;border-radius:18px;overflow:hidden;border:1px solid #283344}
-    .viewer-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#101722;color:#fff}
-    .viewer-top strong{font-size:13px}
-    .viewer-top span{font-size:11.5px;color:#b9c4cf}
-    .viewer-close{min-height:38px;padding:7px 11px;border:1px solid #445061;border-radius:10px;background:#202a38;color:#fff;cursor:pointer;font-weight:750}
-    .doc-stage{position:relative;width:100%;height:min(86dvh,980px);min-height:620px;background:#fff}
-    .doc-stage iframe{display:block;width:100%;height:100%;border:0;background:#fff}
-    .loading{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;background:#fff;color:#56616b;font-size:14px;z-index:1}
-    .loading[hidden]{display:none}
-    .viewer-note{padding:8px 12px;background:#151e2a;color:#aeb9c5;font-size:11.5px;line-height:1.45}
-    .form-card{padding:clamp(20px,4vw,32px)}
-    .form-card h2{margin-bottom:4px}
-    .form-intro{margin:0 0 20px;color:var(--muted);font-size:14px;line-height:1.55}
-    .form-section{padding-top:20px;margin-top:20px;border-top:1px solid #e1dbcf}
-    .form-section:first-of-type{padding-top:0;margin-top:0;border-top:0}
-    .form-section h3{margin:0 0 5px;font-size:1rem;color:#26323d}
-    .section-help{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .field{min-width:0}.field.full{grid-column:1/-1}
-    label{display:block;margin-bottom:7px;color:#26323d;font-size:13.5px;font-weight:800}
-    .req{color:#b33a2f}
-    .hint{margin:-1px 0 7px;color:#78828b;font-size:12px;line-height:1.45}
-    input,select,textarea{width:100%;border:1px solid #cfd5da;border-radius:12px;background:#fff;color:#202b35;font-size:16px}
-    input,select{min-height:50px;padding:11px 12px} textarea{min-height:122px;padding:12px;resize:vertical;line-height:1.5}
-    .form-actions{display:grid;gap:12px;margin-top:22px}.form-check{margin:0;color:#66717c;font-size:12.5px;line-height:1.5}
-    .submit-btn{width:100%}
-    .form-message{display:none;margin-top:12px;padding:12px 14px;border-radius:11px;font-size:13px}.form-message.show{display:block}.error{background:#fff0f0;color:var(--danger);border:1px solid #efc5c5}
+
+    .reader-panel{margin-top:14px;width:100%}
+    .reader-shell{position:relative;overflow:hidden;border:1px solid #1f2935;border-radius:18px;background:#252d38;box-shadow:0 18px 48px rgba(7,16,31,.18)}
+    .reader-toolbar{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px;padding:8px 10px;background:rgba(10,17,27,.97);color:#fff;border-bottom:1px solid #2e3948;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+    .reader-title{min-width:0;display:flex;align-items:center;gap:8px}.reader-title strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.5px}
+    .page-indicator{flex:0 0 auto;padding:5px 8px;border-radius:999px;background:#202b39;color:#dbe4ed;font-size:11.5px;font-weight:750;white-space:nowrap}
+    .reader-tools{display:flex;align-items:center;justify-content:flex-end;gap:6px;min-width:0}
+    .tool-btn{min-width:38px;min-height:38px;display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:7px 9px;border:1px solid #3b4859;border-radius:10px;background:#1a2431;color:#fff;cursor:pointer;font-size:12px;font-weight:800;text-decoration:none}
+    .tool-btn.accent{background:var(--gold);border-color:var(--gold);color:#17212b}.tool-btn.icon{font-size:17px;padding:6px}
+    .reader-search{display:none;padding:9px 10px;background:#111a26;border-bottom:1px solid #2e3948}.reader-search.open{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}.reader-search input{min-height:42px;padding:9px 11px;border:1px solid #405065;border-radius:10px;background:#fff;color:#17212b;font-size:16px}.search-status{grid-column:1/-1;min-height:18px;color:#bcc7d2;font-size:11.5px;line-height:1.4}
+    .reader-body{position:relative;height:calc(100dvh - 58px);min-height:600px;overflow:auto;overscroll-behavior:contain;background:#3b424c;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+    .reader-loading{position:absolute;inset:0;z-index:5;display:grid;place-items:center;padding:28px;text-align:center;background:#f5f6f7;color:#52606d;font-size:14px;line-height:1.5}.reader-loading[hidden]{display:none}
+    .reader-error{display:none;margin:18px;padding:15px;border-radius:12px;background:#fff1f1;color:#8c2f2f;font-size:13px;line-height:1.55}.reader-error.show{display:block}
+    .pages{width:100%;padding:12px 0 34px}.pdf-page{position:relative;width:min(100%,980px);margin:0 auto 12px;background:#fff;box-shadow:0 3px 18px rgba(0,0,0,.25);aspect-ratio:595.32/841.92;contain:layout paint}.pdf-page canvas{display:block;width:100%;height:auto;background:#fff}.page-label{position:absolute;right:6px;bottom:6px;z-index:2;padding:3px 6px;border-radius:7px;background:rgba(12,18,26,.72);color:#fff;font-size:10px;pointer-events:none}
+    .reader-bottom{position:sticky;bottom:0;z-index:25;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px max(10px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:linear-gradient(180deg,rgba(10,17,27,0),rgba(10,17,27,.96) 35%)}.reader-bottom .tool-btn{min-height:42px;background:#101925}.reader-bottom .suggest{background:var(--gold);border-color:var(--gold);color:#17212b;padding-inline:14px}
+
+    .form-panel{margin-top:14px}.form-card{padding:clamp(20px,4vw,32px)}.form-card h2{margin-bottom:4px}.form-intro{margin:0 0 20px;color:var(--muted);font-size:14px;line-height:1.55}
+    .form-section{padding-top:20px;margin-top:20px;border-top:1px solid #e1dbcf}.form-section:first-of-type{padding-top:0;margin-top:0;border-top:0}.form-section h3{margin:0 0 5px;font-size:1rem;color:#26323d}.section-help{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;margin-bottom:7px;color:#26323d;font-size:13.5px;font-weight:800}.req{color:#b33a2f}.hint{margin:-1px 0 7px;color:#78828b;font-size:12px;line-height:1.45}
+    input,select,textarea{width:100%;border:1px solid #cfd5da;border-radius:12px;background:#fff;color:#202b35;font-size:16px}input,select{min-height:50px;padding:11px 12px}textarea{min-height:122px;padding:12px;resize:vertical;line-height:1.5}
+    .form-actions{display:grid;gap:12px;margin-top:22px}.form-check{margin:0;color:#66717c;font-size:12.5px;line-height:1.5}.submit-btn{width:100%}.form-message{display:none;margin-top:12px;padding:12px 14px;border-radius:11px;font-size:13px}.form-message.show{display:block}.error{background:#fff0f0;color:var(--danger);border:1px solid #efc5c5}
     .success-panel{display:none;text-align:center;padding:24px}.success-panel.show{display:block}.success-mark{width:46px;height:46px;display:grid;place-items:center;margin:0 auto 12px;border-radius:50%;background:#eaf6ef;color:var(--success);font-size:24px;font-weight:900}.success-panel h3{margin:0 0 8px}.success-panel p{color:#66717c;line-height:1.55}.success-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-    .guide{margin-top:14px;padding:clamp(20px,4vw,30px);background:var(--paper2)}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.step{padding:16px;border:1px solid #e1dbcf;border-radius:14px;background:#fff}.step strong{display:block;margin-bottom:5px;font-size:13.5px}.step p{margin:0;font-size:12.8px;line-height:1.5}.note{margin-top:15px;padding:13px 14px;border-left:3px solid #c8a900;background:#fffbea;color:#5c5540;font-size:12.8px;line-height:1.55}
+    .guide{margin-top:14px;padding:clamp(20px,4vw,30px);background:var(--paper2)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.step{padding:16px;border:1px solid #e1dbcf;border-radius:14px;background:#fff}.step strong{display:block;margin-bottom:5px;font-size:13.5px}.step p{margin:0;font-size:12.8px;line-height:1.5}.note{margin-top:15px;padding:13px 14px;border-left:3px solid #c8a900;background:#fffbea;color:#5c5540;font-size:12.8px;line-height:1.55}
     footer{padding:0 0 max(28px,env(safe-area-inset-bottom))}.footer-panel{position:relative;padding:20px 12px 0;border-top:1px solid #d7d2c7;text-align:center;color:#66717c}.footer-panel:before{content:"";position:absolute;top:-1px;left:50%;width:54px;height:2px;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue),var(--gold))}.footer-brand{margin-bottom:5px;color:#2d3a46;font-size:11.5px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}.footer-copy{margin:0;font-size:11.5px;line-height:1.55}.footer-copy strong{color:#3b4752}
+
     @media(max-width:760px){
-      .shell{width:min(calc(100% - 18px),1120px)}
-      .hero{padding:9px 0 10px}.hero-card{min-height:500px;padding:20px;border-radius:20px;background-position:68% center}.brand{top:20px;left:20px;right:20px;font-size:10.5px}.hero h1{font-size:clamp(2rem,11vw,3rem)}.hero-text{font-size:14.2px}.signature{font-size:12px}.signature strong{font-size:13px}
-      .actions,.grid,.success-actions,.steps{grid-template-columns:1fr}
-      .btn{min-height:54px}
-      .viewer.panel{width:100vw;margin-left:calc(50% - 50vw);border-radius:0}
-      .viewer{border-left:0;border-right:0;border-radius:0}
-      .viewer-top{position:sticky;top:0;z-index:4;padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
-      .doc-stage{height:calc(100dvh - 58px);min-height:560px}
-      .viewer-note{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
-      .form-card{border-radius:18px}
+      .shell{width:min(calc(100% - 18px),1120px)}.hero{padding:9px 0 10px}.hero-card{min-height:500px;padding:20px;border-radius:20px;background-position:68% center}.brand{top:20px;left:20px;right:20px;font-size:10.5px}.hero h1{font-size:clamp(2rem,11vw,3rem)}.hero-text{font-size:14.2px}.signature{font-size:12px}.signature strong{font-size:13px}
+      .actions,.grid,.success-actions,.steps{grid-template-columns:1fr}.btn{min-height:54px}
+      .reader-panel{width:100vw;margin-left:calc(50% - 50vw)}.reader-shell{border-left:0;border-right:0;border-radius:0;box-shadow:none}.reader-toolbar{grid-template-columns:minmax(0,1fr) auto;padding-left:max(8px,env(safe-area-inset-left));padding-right:max(8px,env(safe-area-inset-right))}.reader-title{display:none}.reader-tools{gap:5px}.tool-btn{min-width:40px;min-height:40px}.hide-mobile{display:none!important}
+      .reader-body{height:calc(100dvh - 57px);min-height:560px}.pages{padding-top:8px}.pdf-page{width:100%;margin-bottom:8px;box-shadow:none}.page-label{right:5px;bottom:5px}.reader-search{padding-left:max(8px,env(safe-area-inset-left));padding-right:max(8px,env(safe-area-inset-right))}.form-card{border-radius:18px}
     }
-    @media(max-width:390px){.hero-card{min-height:520px}.intro,.form-card,.guide{padding:18px}}
+    @media(max-width:390px){.hero-card{min-height:520px}.intro,.form-card,.guide{padding:18px}.reader-toolbar{gap:5px}.page-indicator{padding:5px 7px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <header class="hero" aria-labelledby="page-title">
-    <div class="shell">
-      <div class="hero-card">
-        <div class="brand"><span class="brand-mark" aria-hidden="true">★</span><span>CBMMG • Comissão de Revisão da ITO 30</span></div>
-        <div class="hero-copy">
-          <p class="kicker">Consulta técnica à tropa • 2026</p>
-          <h1 id="page-title">Revisão da <span>ITO 30</span></h1>
-          <p class="subtitle">Atendimento a Tentativas de Suicídio — Sistema ATTS</p>
-          <p class="hero-text">A experiência de quem atua, instrui e gerencia ocorrências é parte importante desta revisão. Consulte a minuta e, ao identificar uma oportunidade de melhoria, registre sua contribuição de forma objetiva.</p>
-          <div class="signature">
-            <span>Cordialmente,</span>
-            <strong>Richelmy Murta, Major BM</strong>
-            <span>Presidente da Comissão de Revisão da ITO 30</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <header class="hero" aria-labelledby="page-title"><div class="shell"><div class="hero-card"><div class="brand"><span class="brand-mark" aria-hidden="true">★</span><span>CBMMG • Comissão de Revisão da ITO 30</span></div><div class="hero-copy"><p class="kicker">Consulta técnica à tropa • 2026</p><h1 id="page-title">Revisão da <span>ITO 30</span></h1><p class="subtitle">Atendimento a Tentativas de Suicídio — Sistema ATTS</p><p class="hero-text">A experiência de quem atua, instrui e gerencia ocorrências é parte importante desta revisão. Consulte a minuta e, ao identificar uma oportunidade de melhoria, registre sua contribuição de forma objetiva.</p><div class="signature"><span>Cordialmente,</span><strong>Richelmy Murta, Major BM</strong><span>Presidente da Comissão de Revisão da ITO 30</span></div></div></div></div></header>
 
-  <main>
-    <div class="shell">
-      <section class="intro" aria-labelledby="participar-title">
-        <p class="eyebrow">Consulta técnica</p>
-        <h2 id="participar-title">Leia a minuta. Identifique o ponto. Registre sua proposta.</h2>
-        <p>A minuta e o formulário funcionam dentro desta própria página. Para contribuir, indique o trecho, explique brevemente o motivo e apresente a redação que você sugere.</p>
-        <div class="actions">
-          <button class="btn btn-primary" id="viewBtn" type="button" aria-expanded="false" aria-controls="viewerPanel">Visualizar minuta <span aria-hidden="true">↓</span></button>
-          <button class="btn btn-answer" id="answerBtn" type="button" aria-expanded="false" aria-controls="formPanel">Responder <span aria-hidden="true">↓</span></button>
-        </div>
-      </section>
+  <main><div class="shell">
+    <section class="intro" aria-labelledby="participar-title"><p class="eyebrow">Consulta técnica</p><h2 id="participar-title">Leia a minuta. Identifique o ponto. Registre sua proposta.</h2><p>A leitura e o envio da contribuição acontecem nesta própria página. No leitor, você pode navegar pela minuta e, ao encontrar um ponto a revisar, abrir a resposta já identificando a página em que estava.</p><div class="actions"><button class="btn btn-primary" id="viewBtn" type="button" aria-expanded="false" aria-controls="readerPanel">Visualizar minuta <span aria-hidden="true">↓</span></button><button class="btn btn-answer" id="answerBtn" type="button" aria-expanded="false" aria-controls="formPanel">Responder <span aria-hidden="true">↓</span></button></div></section>
 
-      <section class="panel viewer" id="viewerPanel" hidden aria-label="Visualização da minuta da ITO 30">
-        <div class="viewer-top">
-          <div><strong>Minuta da ITO 30</strong><br><span id="viewerMode">Visualização otimizada</span></div>
-          <button class="viewer-close" id="closeViewer" type="button">Fechar</button>
-        </div>
-        <div class="doc-stage">
-          <div class="loading" id="viewerLoading">Carregando a minuta…</div>
-          <iframe id="docFrame" title="Minuta da ITO 30" loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-        <div class="viewer-note">No celular, a minuta é exibida em modo refluível para ocupar a largura disponível, melhorar a nitidez e evitar cortes laterais.</div>
-      </section>
+    <section class="reader-panel panel" id="readerPanel" hidden aria-label="Leitor da minuta"><div class="reader-shell"><div class="reader-toolbar"><div class="reader-title"><strong>Minuta da ITO 30</strong><span class="page-indicator" id="pageIndicator">— / —</span></div><div class="page-indicator" id="pageIndicatorMobile">— / —</div><div class="reader-tools"><button class="tool-btn icon" id="prevPage" type="button" title="Página anterior" aria-label="Página anterior">‹</button><button class="tool-btn icon" id="nextPage" type="button" title="Próxima página" aria-label="Próxima página">›</button><button class="tool-btn hide-mobile" id="zoomOut" type="button" title="Diminuir zoom">−</button><button class="tool-btn hide-mobile" id="fitWidth" type="button" title="Ajustar à largura">Ajustar</button><button class="tool-btn hide-mobile" id="zoomIn" type="button" title="Aumentar zoom">+</button><button class="tool-btn" id="searchToggle" type="button" aria-expanded="false" aria-controls="readerSearch">Buscar</button><button class="tool-btn" id="closeReader" type="button">Fechar</button></div></div><div class="reader-search" id="readerSearch"><input id="searchInput" type="search" placeholder="Buscar termo na minuta" autocomplete="off" aria-label="Buscar termo na minuta"><button class="tool-btn accent" id="searchBtn" type="button">Buscar</button><div class="search-status" id="searchStatus" aria-live="polite"></div></div><div class="reader-body" id="readerBody"><div class="reader-loading" id="readerLoading">Preparando a minuta para leitura…</div><div class="reader-error" id="readerError">Não foi possível carregar a minuta. Atualize a página e tente novamente.</div><div class="pages" id="pages"></div><div class="reader-bottom"><button class="tool-btn icon" id="prevPageBottom" type="button" aria-label="Página anterior">‹</button><button class="tool-btn suggest" id="suggestPage" type="button">Sugerir alteração desta página</button><button class="tool-btn icon" id="nextPageBottom" type="button" aria-label="Próxima página">›</button></div></div></div></section>
 
-      <section class="panel" id="formPanel" hidden aria-labelledby="form-title">
-        <div class="form-card">
-          <form id="itoForm" action="https://docs.google.com/forms/d/e/1FAIpQLSehw1svEtR132gzqSuQM54D45IuOyeN2BZtaeDiRsRgVeEioQ/formResponse" method="POST">
-            <div id="formFields">
-              <p class="eyebrow">Sua contribuição</p>
-              <h2 id="form-title">Registre uma sugestão</h2>
-              <p class="form-intro">Uma contribuição por envio. Referência é opcional.</p>
+    <section class="form-panel panel" id="formPanel" hidden aria-label="Formulário de contribuição"><form class="form-card" id="itoForm" action="https://docs.google.com/forms/d/e/1FAIpQLSehw1svEtR132gzqSuQM54D45IuOyeN2BZtaeDiRsRgVeEioQ/formResponse" method="POST"><div id="formFields"><p class="eyebrow">Sua contribuição</p><h2>Proposta de revisão</h2><p class="form-intro">Uma sugestão por envio. Referências são opcionais.</p>
+      <div class="form-section"><h3>1. Identificação</h3><div class="grid"><div class="field"><label for="nome">Nome completo <span class="req">*</span></label><input id="nome" name="entry.2051715658" type="text" autocomplete="name" required></div><div class="field"><label for="posto">Posto/Graduação <span class="req">*</span></label><select id="posto" name="entry.1776044509" required><option value="" selected disabled>Selecione</option><option>Tenente-Coronel</option><option>Major</option><option>Capitão</option><option>Tenente</option><option>Asp-a-Of</option><option>Cadete</option><option>SubTenente</option><option>1º Sgt</option><option>2º Sgt</option><option>3º Sgt</option><option>Cb</option><option>Sd</option></select></div><div class="field full"><label for="email">Melhor e-mail para contato <span class="req">*</span></label><input id="email" name="entry.2085063746" type="email" inputmode="email" autocomplete="email" required></div></div></div>
+      <div class="form-section"><h3>2. Local da sugestão</h3><p class="section-help">Escolha a parte da minuta e indique o fragmento que deseja revisar.</p><div class="grid"><div class="field full"><label for="capitulo">Em qual parte da ITO 30 está sua sugestão? <span class="req">*</span></label><select id="capitulo" name="entry.1314340447" required><option value="" selected disabled>Selecione a parte da ITO</option><option>Elementos pré-textuais — Siglas, Sumário ou organização inicial</option><option>Capítulo 1 — Introdução</option><option>Capítulo 2 — Finalidade</option><option>Capítulo 3 — Objetivos</option><option>Capítulo 4 — Conceitos e Definições</option><option>Capítulo 5 — Sistema de Abordagem Técnica a Tentativas de Suicídio — Sistema ATTS</option><option>Capítulo 6 — Gerenciamento de Ocorrências de ATTS</option><option>Capítulo 7 — Outras Instituições na Cena</option><option>Capítulo 8 — Abordagem de Dissuasão</option><option>Capítulo 9 — Abordagem Inclusiva e Comunicação Adaptada</option><option>Capítulo 10 — Abordagem Tática</option><option>Capítulo 11 — Entrada no Ambiente e Contenção</option><option>Capítulo 12 — Tentante com Lesões e Situações com Presunção de Óbito</option><option>Capítulo 13 — Encerramento da Ocorrência</option><option>Elementos pós-textuais — Referências</option><option>Elementos pós-textuais — Apêndices A a M</option></select></div><div class="field full"><label for="fragmento">Qual trecho você sugere revisar? <span class="req">*</span></label><p class="hint">Copie o fragmento atual. Se for inclusão nova, escreva “Inclusão”. Se possível, informe item ou página.</p><textarea id="fragmento" name="entry.435462653" required></textarea></div></div></div>
+      <div class="form-section"><h3>3. Sua proposta</h3><div class="grid"><div class="field full"><label for="justificativa">Por que você sugere essa alteração? <span class="req">*</span></label><p class="hint">Ex.: segurança, clareza, experiência operacional, atualização técnica ou adequação à doutrina.</p><textarea id="justificativa" name="entry.1714859578" required></textarea></div><div class="field full"><label for="proposta">Como você sugere que fique? <span class="req">*</span></label><p class="hint">Escreva, preferencialmente, a nova redação proposta.</p><textarea id="proposta" name="entry.1328219941" required></textarea></div><div class="field full"><label for="referencia">Referência ou fonte, se houver</label><p class="hint">Opcional. Pode ser ITO, MABOM, norma, manual, artigo, livro ou link.</p><textarea id="referencia" name="entry.1240379903"></textarea></div></div></div>
+      <input type="hidden" name="fvv" value="1"><input type="hidden" name="pageHistory" value="0"><div class="form-actions"><p class="form-check">Antes de enviar, confira: indicou o trecho, explicou o motivo e apresentou sua proposta?</p><button class="btn btn-primary submit-btn" id="submitBtn" type="submit">Enviar contribuição</button></div><div class="form-message error" id="errorMessage" role="alert">Não foi possível enviar agora. Verifique sua conexão e tente novamente.</div></div><div class="success-panel" id="successPanel" role="status" aria-live="polite"><div class="success-mark" aria-hidden="true">✓</div><h3>Contribuição recebida</h3><p>Sua sugestão foi encaminhada para análise da Comissão de Revisão da ITO 30.</p><div class="success-actions"><button class="btn btn-primary" id="newSuggestion" type="button">Enviar outra contribuição</button><button class="btn btn-secondary" id="backToDoc" type="button">Voltar à minuta</button></div></div></form></section>
 
-              <div class="form-section">
-                <h3>1. Identificação</h3>
-                <div class="grid">
-                  <div class="field"><label for="nome">Nome completo <span class="req">*</span></label><input id="nome" name="entry.2051715658" type="text" autocomplete="name" required></div>
-                  <div class="field"><label for="posto">Posto/Graduação <span class="req">*</span></label><select id="posto" name="entry.1776044509" required><option value="" selected disabled>Selecione</option><option>Tenente-Coronel</option><option>Major</option><option>Capitão</option><option>Tenente</option><option>Asp-a-Of</option><option>Cadete</option><option>SubTenente</option><option>1º Sgt</option><option>2º Sgt</option><option>3º Sgt</option><option>Cb</option><option>Sd</option></select></div>
-                  <div class="field full"><label for="email">Melhor e-mail para contato <span class="req">*</span></label><input id="email" name="entry.2085063746" type="email" inputmode="email" autocomplete="email" required></div>
-                </div>
-              </div>
+    <section class="guide" aria-labelledby="guide-title"><p class="eyebrow">Como contribuir</p><h2 id="guide-title">Três passos</h2><div class="steps"><article class="step"><strong>1. Localize o trecho</strong><p>Identifique o capítulo, item, página ou fragmento que deseja revisar.</p></article><article class="step"><strong>2. Explique o motivo</strong><p>Indique, de forma breve, o ganho esperado: clareza, segurança, atualização ou adequação operacional.</p></article><article class="step"><strong>3. Proponha a redação</strong><p>Escreva como o trecho poderia ficar. Referências são opcionais.</p></article></div><div class="note"><strong>Importante:</strong> não é necessário utilizar linguagem acadêmica. O objetivo é compreender com precisão a sugestão e a melhoria proposta.</div></section>
+  </div></main>
 
-              <div class="form-section">
-                <h3>2. Local da sugestão</h3>
-                <p class="section-help">Escolha a parte da minuta e indique o fragmento a revisar.</p>
-                <div class="grid">
-                  <div class="field full"><label for="capitulo">Em qual parte da ITO 30 está sua sugestão? <span class="req">*</span></label><select id="capitulo" name="entry.1314340447" required><option value="" selected disabled>Selecione a parte da ITO</option><option>Elementos pré-textuais — Siglas, Sumário ou organização inicial</option><option>Capítulo 1 — Introdução</option><option>Capítulo 2 — Finalidade</option><option>Capítulo 3 — Objetivos</option><option>Capítulo 4 — Conceitos e Definições</option><option>Capítulo 5 — Sistema de Abordagem Técnica a Tentativas de Suicídio — Sistema ATTS</option><option>Capítulo 6 — Gerenciamento de Ocorrências de ATTS</option><option>Capítulo 7 — Outras Instituições na Cena</option><option>Capítulo 8 — Abordagem de Dissuasão</option><option>Capítulo 9 — Abordagem Inclusiva e Comunicação Adaptada</option><option>Capítulo 10 — Abordagem Tática</option><option>Capítulo 11 — Entrada no Ambiente e Contenção</option><option>Capítulo 12 — Tentante com Lesões e Situações com Presunção de Óbito</option><option>Capítulo 13 — Encerramento da Ocorrência</option><option>Elementos pós-textuais — Referências</option><option>Elementos pós-textuais — Apêndices A a M</option></select></div>
-                  <div class="field full"><label for="fragmento">Qual trecho você sugere revisar? <span class="req">*</span></label><p class="hint">Copie o fragmento atual. Se for inclusão, escreva “Inclusão”. Se possível, informe item ou página.</p><textarea id="fragmento" name="entry.435462653" required></textarea></div>
-                </div>
-              </div>
+  <footer><div class="shell"><div class="footer-panel"><div class="footer-brand">★ CBMMG • Revisão da ITO 30</div><p class="footer-copy"><strong>© 2026 Corpo de Bombeiros Militar de Minas Gerais.</strong><br>Comissão de Revisão da ITO 30 • Todos os direitos reservados.</p></div></div></footer>
 
-              <div class="form-section">
-                <h3>3. Sua proposta</h3>
-                <div class="grid">
-                  <div class="field full"><label for="justificativa">Por que você sugere essa alteração? <span class="req">*</span></label><p class="hint">Ex.: segurança, clareza, experiência operacional, atualização técnica ou adequação à doutrina.</p><textarea id="justificativa" name="entry.1714859578" required></textarea></div>
-                  <div class="field full"><label for="proposta">Como você sugere que fique? <span class="req">*</span></label><p class="hint">Escreva, preferencialmente, a nova redação proposta.</p><textarea id="proposta" name="entry.1328219941" required></textarea></div>
-                  <div class="field full"><label for="referencia">Referência ou fonte, se houver</label><p class="hint">Opcional. Pode ser ITO, MABOM, norma, manual, artigo, livro ou link.</p><textarea id="referencia" name="entry.1240379903"></textarea></div>
-                </div>
-              </div>
+  <script type="module">
+    import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs';
+    pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';
 
-              <input type="hidden" name="fvv" value="1"><input type="hidden" name="pageHistory" value="0">
-              <div class="form-actions"><p class="form-check">Antes de enviar, confira: indicou o trecho, explicou o motivo e apresentou sua proposta?</p><button class="btn btn-primary submit-btn" id="submitBtn" type="submit">Enviar contribuição</button></div>
-              <div class="form-message error" id="errorMessage" role="alert">Não foi possível enviar agora. Verifique sua conexão e tente novamente.</div>
-            </div>
+    const PDF_URL='./minuta-ito30.pdf';
+    const viewBtn=document.getElementById('viewBtn'),answerBtn=document.getElementById('answerBtn'),readerPanel=document.getElementById('readerPanel'),formPanel=document.getElementById('formPanel'),readerBody=document.getElementById('readerBody'),pagesEl=document.getElementById('pages'),loadingEl=document.getElementById('readerLoading'),readerError=document.getElementById('readerError');
+    const pageIndicators=[document.getElementById('pageIndicator'),document.getElementById('pageIndicatorMobile')],prevBtns=[document.getElementById('prevPage'),document.getElementById('prevPageBottom')],nextBtns=[document.getElementById('nextPage'),document.getElementById('nextPageBottom')];
+    const closeReader=document.getElementById('closeReader'),zoomOut=document.getElementById('zoomOut'),zoomIn=document.getElementById('zoomIn'),fitWidth=document.getElementById('fitWidth'),searchToggle=document.getElementById('searchToggle'),readerSearch=document.getElementById('readerSearch'),searchInput=document.getElementById('searchInput'),searchBtn=document.getElementById('searchBtn'),searchStatus=document.getElementById('searchStatus'),suggestPage=document.getElementById('suggestPage');
+    const form=document.getElementById('itoForm'),fields=document.getElementById('formFields'),success=document.getElementById('successPanel'),error=document.getElementById('errorMessage'),submitBtn=document.getElementById('submitBtn'),newSuggestion=document.getElementById('newSuggestion'),backToDoc=document.getElementById('backToDoc'),fragmento=document.getElementById('fragmento');
 
-            <div class="success-panel" id="successPanel" role="status" aria-live="polite">
-              <div class="success-mark" aria-hidden="true">✓</div><h3>Contribuição recebida</h3><p>Sua sugestão foi encaminhada para análise da Comissão de Revisão da ITO 30.</p>
-              <div class="success-actions"><button class="btn btn-primary" id="newSuggestion" type="button">Enviar outra contribuição</button><button class="btn btn-secondary" id="backToDoc" type="button">Voltar à minuta</button></div>
-            </div>
-          </form>
-        </div>
-      </section>
+    let pdfDoc=null,loadPromise=null,currentPage=1,zoomFactor=1,resizeTimer=null,intersectionObserver=null,currentObserver=null,searchHits=[],searchHitIndex=-1;
+    const renderState=new Map(),pageTextCache=new Map();
 
-      <section class="guide" aria-labelledby="guide-title">
-        <p class="eyebrow">Como contribuir</p><h2 id="guide-title">Três passos</h2>
-        <div class="steps"><article class="step"><strong>1. Localize o trecho</strong><p>Identifique o capítulo, item, página ou fragmento que deseja revisar.</p></article><article class="step"><strong>2. Explique o motivo</strong><p>Indique de forma breve o ganho esperado: clareza, segurança, atualização ou adequação operacional.</p></article><article class="step"><strong>3. Proponha a redação</strong><p>Escreva como o trecho poderia ficar. Referências são opcionais.</p></article></div>
-        <div class="note"><strong>Importante:</strong> não é necessário utilizar linguagem acadêmica. O objetivo é compreender com precisão a sugestão e a melhoria proposta.</div>
-      </section>
-    </div>
-  </main>
+    function setExpanded(button,panel,open){button.setAttribute('aria-expanded',String(open));panel.hidden=!open}
+    function updateIndicator(){const total=pdfDoc?.numPages||'—';pageIndicators.forEach(el=>el.textContent=`${pdfDoc?currentPage:'—'} / ${total}`)}
+    function scrollPanel(panel){setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'start'}),20)}
 
-  <footer><div class="shell"><div class="footer-panel"><div class="footer-brand">★ &nbsp; CBMMG • Revisão da ITO 30</div><p class="footer-copy"><strong>© 2026 Corpo de Bombeiros Militar de Minas Gerais.</strong><br>Comissão de Revisão da ITO 30 • Todos os direitos reservados.</p></div></div></footer>
+    async function ensurePdf(){
+      if(pdfDoc)return pdfDoc;if(loadPromise)return loadPromise;loadingEl.hidden=false;readerError.classList.remove('show');
+      loadPromise=pdfjsLib.getDocument({url:PDF_URL,disableAutoFetch:false,disableStream:false,rangeChunkSize:65536}).promise.then(doc=>{pdfDoc=doc;buildPagePlaceholders();updateIndicator();loadingEl.hidden=true;return doc}).catch(err=>{console.error(err);readerError.classList.add('show');loadingEl.hidden=true;loadPromise=null;throw err});return loadPromise;
+    }
+    function pageBaseScale(page){const viewport=page.getViewport({scale:1}),available=Math.max(280,readerBody.clientWidth),maxWidth=window.innerWidth<=760?available:Math.min(available,980);return maxWidth/viewport.width}
+    async function renderPage(num,force=false){
+      if(!pdfDoc||num<1||num>pdfDoc.numPages)return;const state=renderState.get(num)||{};if(state.rendering)return;const holder=document.getElementById(`pdf-page-${num}`);if(!holder)return;const targetWidth=Math.round(holder.getBoundingClientRect().width);if(!force&&state.rendered&&Math.abs((state.cssWidth||0)-targetWidth)<2&&state.zoom===zoomFactor)return;state.rendering=true;renderState.set(num,state);
+      try{const page=await pdfDoc.getPage(num),scale=pageBaseScale(page)*zoomFactor,viewport=page.getViewport({scale}),cssWidth=viewport.width,cssHeight=viewport.height;holder.style.width=`${cssWidth}px`;holder.style.aspectRatio='auto';holder.style.height=`${cssHeight}px`;let canvas=holder.querySelector('canvas');if(!canvas){canvas=document.createElement('canvas');holder.prepend(canvas)}const dpr=Math.min(window.devicePixelRatio||1,2.25);canvas.width=Math.floor(viewport.width*dpr);canvas.height=Math.floor(viewport.height*dpr);canvas.style.width=`${viewport.width}px`;canvas.style.height=`${viewport.height}px`;const ctx=canvas.getContext('2d',{alpha:false});ctx.setTransform(1,0,0,1,0,0);await page.render({canvasContext:ctx,viewport,transform:dpr!==1?[dpr,0,0,dpr,0,0]:null}).promise;state.rendered=true;state.cssWidth=targetWidth;state.zoom=zoomFactor}catch(err){console.error('Falha na página',num,err)}finally{state.rendering=false;renderState.set(num,state)}
+    }
+    function buildPagePlaceholders(){pagesEl.innerHTML='';renderState.clear();const frag=document.createDocumentFragment();for(let i=1;i<=pdfDoc.numPages;i++){const holder=document.createElement('section');holder.className='pdf-page';holder.id=`pdf-page-${i}`;holder.dataset.page=String(i);holder.setAttribute('aria-label',`Página ${i}`);const label=document.createElement('span');label.className='page-label';label.textContent=String(i);holder.append(label);frag.append(holder)}pagesEl.append(frag);setupObservers();requestAnimationFrame(()=>{renderPage(1);if(pdfDoc.numPages>1)renderPage(2)})}
+    function setupObservers(){intersectionObserver?.disconnect();currentObserver?.disconnect();intersectionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const n=Number(entry.target.dataset.page);renderPage(n);renderPage(n+1);renderPage(n-1)}})},{root:readerBody,rootMargin:'1200px 0px',threshold:.01});currentObserver=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);if(visible.length){currentPage=Number(visible[0].target.dataset.page);updateIndicator()}},{root:readerBody,threshold:[.18,.35,.55,.75]});pagesEl.querySelectorAll('.pdf-page').forEach(el=>{intersectionObserver.observe(el);currentObserver.observe(el)})}
 
-  <script>
-    (()=>{
-      'use strict';
-      const DOC_ID='11RH0jaZOul9qNh7hrTRLXc-DClndHEFW';
-      const MOBILE_DOC=`https://docs.google.com/document/d/${DOC_ID}/mobilebasic?rm=minimal`;
-      const DESKTOP_DOC=`https://docs.google.com/document/d/${DOC_ID}/preview?rm=minimal`;
-      const viewBtn=document.getElementById('viewBtn'),answerBtn=document.getElementById('answerBtn');
-      const viewerPanel=document.getElementById('viewerPanel'),formPanel=document.getElementById('formPanel');
-      const closeViewer=document.getElementById('closeViewer'),docFrame=document.getElementById('docFrame');
-      const viewerLoading=document.getElementById('viewerLoading'),viewerMode=document.getElementById('viewerMode');
-      const form=document.getElementById('itoForm'),fields=document.getElementById('formFields'),success=document.getElementById('successPanel');
-      const error=document.getElementById('errorMessage'),submitBtn=document.getElementById('submitBtn');
-      const newSuggestion=document.getElementById('newSuggestion'),backToDoc=document.getElementById('backToDoc');
-      let loadedSrc='';
+    async function openReader(){setExpanded(answerBtn,formPanel,false);setExpanded(viewBtn,readerPanel,true);scrollPanel(readerPanel);try{await ensurePdf();setTimeout(()=>goToPage(currentPage,false),60)}catch(_){}}
+    function closeReaderPanel(){setExpanded(viewBtn,readerPanel,false);viewBtn.focus()}
+    function openForm(fromPage=false){setExpanded(viewBtn,readerPanel,false);setExpanded(answerBtn,formPanel,true);if(fromPage&&fragmento&&!fragmento.value.trim())fragmento.value=`Página ${currentPage} — `;scrollPanel(formPanel)}
+    async function goToPage(num,smooth=true){if(!pdfDoc)return;const n=Math.max(1,Math.min(pdfDoc.numPages,Number(num)||1));currentPage=n;updateIndicator();await renderPage(n);document.getElementById(`pdf-page-${n}`)?.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'})}
+    prevBtns.forEach(btn=>btn.addEventListener('click',()=>goToPage(currentPage-1)));nextBtns.forEach(btn=>btn.addEventListener('click',()=>goToPage(currentPage+1)));viewBtn.addEventListener('click',()=>readerPanel.hidden?openReader():closeReaderPanel());answerBtn.addEventListener('click',()=>formPanel.hidden?openForm(false):setExpanded(answerBtn,formPanel,false));closeReader.addEventListener('click',closeReaderPanel);suggestPage.addEventListener('click',()=>openForm(true));backToDoc.addEventListener('click',openReader);
 
-      function isMobile(){return window.matchMedia('(max-width:760px)').matches}
-      function closePanel(panel,button){panel.hidden=true;button.setAttribute('aria-expanded','false')}
-      function openPanel(panel,button){panel.hidden=false;button.setAttribute('aria-expanded','true');setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'start'}),30)}
-      function loadDoc(){
-        const src=isMobile()?MOBILE_DOC:DESKTOP_DOC;
-        viewerMode.textContent=isMobile()?'Modo móvel — texto ajustado à largura':'Visualização da minuta';
-        if(loadedSrc===src)return;
-        viewerLoading.hidden=false;docFrame.style.visibility='hidden';docFrame.src=src;loadedSrc=src;
-        docFrame.onload=()=>{viewerLoading.hidden=true;docFrame.style.visibility='visible'};
-      }
-      function openViewer(){closePanel(formPanel,answerBtn);loadDoc();openPanel(viewerPanel,viewBtn)}
-      function openForm(){closePanel(viewerPanel,viewBtn);openPanel(formPanel,answerBtn)}
-      viewBtn.addEventListener('click',()=>viewerPanel.hidden?openViewer():closePanel(viewerPanel,viewBtn));
-      answerBtn.addEventListener('click',()=>formPanel.hidden?openForm():closePanel(formPanel,answerBtn));
-      closeViewer.addEventListener('click',()=>{closePanel(viewerPanel,viewBtn);viewBtn.focus()});
-      backToDoc.addEventListener('click',openViewer);
+    function rerenderVisible(){if(!pdfDoc)return;for(let i=Math.max(1,currentPage-2);i<=Math.min(pdfDoc.numPages,currentPage+2);i++)renderPage(i,true)}
+    zoomOut.addEventListener('click',()=>{zoomFactor=Math.max(.75,Math.round((zoomFactor-.15)*100)/100);rerenderVisible()});zoomIn.addEventListener('click',()=>{zoomFactor=Math.min(1.8,Math.round((zoomFactor+.15)*100)/100);rerenderVisible()});fitWidth.addEventListener('click',()=>{zoomFactor=1;rerenderVisible()});window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(window.innerWidth<=760)zoomFactor=1;rerenderVisible()},180)});
 
-      function focusInvalid(){const invalid=form.querySelector(':invalid');if(invalid){invalid.focus({preventScroll:true});invalid.scrollIntoView({behavior:'smooth',block:'center'})}}
-      form.addEventListener('submit',async e=>{
-        e.preventDefault();error.classList.remove('show');
-        if(!form.checkValidity()){form.reportValidity();focusInvalid();return}
-        submitBtn.disabled=true;submitBtn.textContent='Enviando…';
-        try{const body=new URLSearchParams(new FormData(form));await fetch(form.action,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body});fields.style.display='none';success.classList.add('show');success.scrollIntoView({behavior:'smooth',block:'center'})}
-        catch(err){error.classList.add('show');error.scrollIntoView({behavior:'smooth',block:'center'})}
-        finally{submitBtn.disabled=false;submitBtn.textContent='Enviar contribuição'}
-      });
-      newSuggestion.addEventListener('click',()=>{['capitulo','fragmento','justificativa','proposta','referencia'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});success.classList.remove('show');fields.style.display='';error.classList.remove('show');formPanel.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>document.getElementById('capitulo').focus(),250)});
-    })();
+    searchToggle.addEventListener('click',()=>{const open=!readerSearch.classList.contains('open');readerSearch.classList.toggle('open',open);searchToggle.setAttribute('aria-expanded',String(open));if(open)setTimeout(()=>searchInput.focus(),60)});
+    async function getPageText(num){if(pageTextCache.has(num))return pageTextCache.get(num);const page=await pdfDoc.getPage(num),tc=await page.getTextContent(),text=tc.items.map(i=>i.str).join(' ').replace(/\s+/g,' ').trim();pageTextCache.set(num,text);return text}
+    async function runSearch(){const term=searchInput.value.trim().toLocaleLowerCase('pt-BR');if(!term){searchStatus.textContent='Digite um termo para buscar.';return}await ensurePdf();searchBtn.disabled=true;searchBtn.textContent='Buscando…';searchStatus.textContent='Pesquisando na minuta…';searchHits=[];searchHitIndex=-1;try{for(let i=1;i<=pdfDoc.numPages;i++){const text=await getPageText(i),lower=text.toLocaleLowerCase('pt-BR'),pos=lower.indexOf(term);if(pos!==-1){const start=Math.max(0,pos-45),end=Math.min(text.length,pos+term.length+70);searchHits.push({page:i,snippet:`${start>0?'…':''}${text.slice(start,end)}${end<text.length?'…':''}`})}if(i%12===0)searchStatus.textContent=`Pesquisando… ${i}/${pdfDoc.numPages}`}if(!searchHits.length){searchStatus.textContent='Nenhuma ocorrência encontrada.';return}searchHitIndex=0;showSearchHit()}finally{searchBtn.disabled=false;searchBtn.textContent='Buscar'}}
+    function showSearchHit(){if(!searchHits.length)return;const hit=searchHits[searchHitIndex];searchStatus.innerHTML=`${searchHitIndex+1} de ${searchHits.length} • página ${hit.page}: ${escapeHtml(hit.snippet)} <button type="button" id="nextHitInline" style="margin-left:6px;border:0;border-radius:7px;padding:4px 7px;background:#ffdd00;color:#17212b;font-weight:800;cursor:pointer">próxima</button>`;goToPage(hit.page);setTimeout(()=>document.getElementById('nextHitInline')?.addEventListener('click',()=>{searchHitIndex=(searchHitIndex+1)%searchHits.length;showSearchHit()}),0)}
+    function escapeHtml(str){return str.replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]))}
+    searchBtn.addEventListener('click',runSearch);searchInput.addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});
+
+    function focusInvalid(){const invalid=form.querySelector(':invalid');if(invalid){invalid.focus({preventScroll:true});invalid.scrollIntoView({behavior:'smooth',block:'center'})}}
+    form.addEventListener('submit',async e=>{e.preventDefault();error.classList.remove('show');if(!form.checkValidity()){form.reportValidity();focusInvalid();return}submitBtn.disabled=true;submitBtn.textContent='Enviando…';try{const body=new URLSearchParams(new FormData(form));await fetch(form.action,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body});fields.style.display='none';success.classList.add('show');success.scrollIntoView({behavior:'smooth',block:'center'})}catch(err){error.classList.add('show');error.scrollIntoView({behavior:'smooth',block:'center'})}finally{submitBtn.disabled=false;submitBtn.textContent='Enviar contribuição'}});
+    newSuggestion.addEventListener('click',()=>{['capitulo','fragmento','justificativa','proposta','referencia'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});success.classList.remove('show');fields.style.display='';error.classList.remove('show');formPanel.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>document.getElementById('capitulo').focus(),250)});
   </script>
 </body>
 </html>

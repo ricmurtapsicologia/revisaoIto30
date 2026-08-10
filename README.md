@@ -24,13 +24,15 @@ O leitor utiliza o arquivo local:
 
 `minuta-ito30.pdf`
 
-O PDF é exportado do documento oficial do Google Docs pelo workflow:
+O PDF é sincronizado para o repositório pelo workflow:
 
 `.github/workflows/sync-minuta.yml`
 
-Documento-fonte:
+Fonte oficial atual — ITO 30 V3.3:
 
-`https://docs.google.com/document/d/11RH0jaZOul9qNh7hrTRLXc-DClndHEFW/edit`
+`https://drive.google.com/file/d/1f0m-Vvg-RupgOkvpwmBI_zDHOkC07iQU/view?usp=drive_link`
+
+A opção por manter uma cópia local no GitHub Pages evita expor a interface do Google Drive ao avaliador e melhora a estabilidade do leitor PDF.js.
 
 ## Leitor PDF
 
@@ -66,7 +68,7 @@ Se o Google Forms for recriado ou suas perguntas forem substituídas, esses IDs 
 
 - `index.html` — página completa, leitor PDF.js e formulário integrado.
 - `minuta-ito30.pdf` — PDF oficial apresentado no leitor.
-- `.github/workflows/sync-minuta.yml` — exportação/sincronização do PDF a partir do Google Docs.
+- `.github/workflows/sync-minuta.yml` — sincronização do PDF oficial a partir do Google Drive.
 - `.nojekyll` — publicação estática sem processamento Jekyll.
 
 ## Identidade visual
